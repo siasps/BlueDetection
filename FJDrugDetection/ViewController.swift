@@ -8,7 +8,27 @@
 
 import UIKit
 
-class ViewController: UIViewController,FJBaiduToolDelegate,DeviceServiceDelegate {
+class ViewController: UIViewController,FJBaiduToolDelegate,DeviceServiceDelegate,UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2;
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell:TableViewCellCustom = tableView.dequeueReusableCell(withIdentifier: "cell") as! TableViewCellCustom
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 20;
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.02
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.02
+    }
 
     var devService:DeviceService!
     var cannectStatus = false
@@ -16,7 +36,6 @@ class ViewController: UIViewController,FJBaiduToolDelegate,DeviceServiceDelegate
     var resultString : String = ""
     
     
-    @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var statusLabel: UILabel!
     
     override func viewDidLoad() {
@@ -27,7 +46,13 @@ class ViewController: UIViewController,FJBaiduToolDelegate,DeviceServiceDelegate
         let tapGes = UITapGestureRecognizer(target: self,action: #selector(self.titleLabelClick(tapGes: )))
         self.view.addGestureRecognizer(tapGes)
         
- 
+        
+        self.navigationItem.titleView = statusLabel
+        
+        statusLabel.text = "sssss"
+        
+        self.title = "12345678901234567890"
+        
         
         devService = DeviceService()
     }
@@ -38,13 +63,13 @@ class ViewController: UIViewController,FJBaiduToolDelegate,DeviceServiceDelegate
 //            return
 //        }
         
-       textView.resignFirstResponder()
+//       textView.resignFirstResponder()
     }
     
 
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.navigationBar.isHidden = false
         
         devService.delegate = self
         
@@ -55,7 +80,7 @@ class ViewController: UIViewController,FJBaiduToolDelegate,DeviceServiceDelegate
         
     }
     override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.navigationBar.isHidden = false
         
         devService.stopService()
 
@@ -127,7 +152,7 @@ class ViewController: UIViewController,FJBaiduToolDelegate,DeviceServiceDelegate
         
         print(resultString)
         
-        textView.text = resultString
+//        textView.text = resultString
     }
 
     @IBAction func stopServer(_ sender: Any) {
@@ -148,7 +173,7 @@ class ViewController: UIViewController,FJBaiduToolDelegate,DeviceServiceDelegate
         
         resultString = ""
         
-        textView.text = resultString
+//        textView.text = resultString
     }
 }
 

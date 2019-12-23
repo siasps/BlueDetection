@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		523C2C49CF1975333C61EBB9 /* Pods_FJDrugDetection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 906956091587EF1B2FE9BC35 /* Pods_FJDrugDetection.framework */; };
+		B81770B723B07D3800F47EE9 /* TableViewCellCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81770B623B07D3800F47EE9 /* TableViewCellCustom.swift */; };
 		B83BA7D4226DA96700306D6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83BA7D3226DA96700306D6F /* AppDelegate.swift */; };
 		B83BA7D6226DA96700306D6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83BA7D5226DA96700306D6F /* ViewController.swift */; };
 		B83BA7DB226DA96A00306D6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B83BA7DA226DA96A00306D6F /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		40514697404ECC4B818306BD /* Pods-FJDrugDetection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FJDrugDetection.release.xcconfig"; path = "Target Support Files/Pods-FJDrugDetection/Pods-FJDrugDetection.release.xcconfig"; sourceTree = "<group>"; };
 		406A9066295BCEFE58A470AD /* Pods-FJDrugDetection.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FJDrugDetection.debug.xcconfig"; path = "Target Support Files/Pods-FJDrugDetection/Pods-FJDrugDetection.debug.xcconfig"; sourceTree = "<group>"; };
 		906956091587EF1B2FE9BC35 /* Pods_FJDrugDetection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FJDrugDetection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B81770B623B07D3800F47EE9 /* TableViewCellCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellCustom.swift; sourceTree = "<group>"; };
 		B83BA7D0226DA96700306D6F /* FJDrugDetection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FJDrugDetection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B83BA7D3226DA96700306D6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B83BA7D5226DA96700306D6F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			children = (
 				B83BA7D3226DA96700306D6F /* AppDelegate.swift */,
 				B83BA7D5226DA96700306D6F /* ViewController.swift */,
+				B81770B623B07D3800F47EE9 /* TableViewCellCustom.swift */,
 				B847FFF9227693D8000329A1 /* FJLogingViewController.swift */,
 				B83BA7E5226DB59200306D6F /* FJReportViewController.swift */,
 				B847FFF42275A4BD000329A1 /* FJBaiduTool.h */,
@@ -263,6 +266,7 @@
 				B83BA7D4226DA96700306D6F /* AppDelegate.swift in Sources */,
 				B847FFF62275A4BD000329A1 /* FJBaiduTool.m in Sources */,
 				B83BA7E6226DB59200306D6F /* FJReportViewController.swift in Sources */,
+				B81770B723B07D3800F47EE9 /* TableViewCellCustom.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
