@@ -64,9 +64,9 @@ class ViewController: UIViewController,FJBaiduToolDelegate,DeviceServiceDelegate
         self.navigationItem.titleView = statusLabel
                 
         //不写headerView 距离头部存在间距
-        let header = UIView(frame: CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: 0.01))
-        header.backgroundColor = UIColor.blue
-        self.tableView.tableHeaderView = header
+//        let header = UIView(frame: CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: 0.01))
+//        header.backgroundColor = UIColor.blue
+//        self.tableView.tableHeaderView = header
         
         
         devService = DeviceService()
