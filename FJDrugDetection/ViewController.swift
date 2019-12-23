@@ -9,12 +9,23 @@
 import UIKit
 
 class ViewController: UIViewController,FJBaiduToolDelegate,DeviceServiceDelegate,UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2;
+        return arrayData.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:TableViewCellCustom = tableView.dequeueReusableCell(withIdentifier: "cell") as! TableViewCellCustom
+        let detectValue : DetectValue = arrayData[indexPath.row]
+        cell.label_1.text = detectValue.AD1
+        cell.label_2.text = detectValue.AD1M
+        cell.label_3.text = detectValue.AD2
+        cell.label_4.text = detectValue.AD2M
+        cell.label_5.text = detectValue.AD3
+        cell.label_6.text = detectValue.AD3M
+        cell.label_7.text = "\(indexPath.row + 1)"
         return cell
     }
     
@@ -29,11 +40,14 @@ class ViewController: UIViewController,FJBaiduToolDelegate,DeviceServiceDelegate
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.02
     }
+    
 
     var devService:DeviceService!
     var cannectStatus = false
     
     var resultString : String = ""
+    var arrayData:[DetectValue] = [DetectValue]()
+    
     
     
     @IBOutlet weak var statusLabel: UILabel!
@@ -48,10 +62,11 @@ class ViewController: UIViewController,FJBaiduToolDelegate,DeviceServiceDelegate
         
         
         self.navigationItem.titleView = statusLabel
-        
-        statusLabel.text = "sssss"
-        
-        self.title = "12345678901234567890"
+                
+        //不写headerView 距离头部存在间距
+        let header = UIView(frame: CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: 0.01))
+        header.backgroundColor = UIColor.blue
+        self.tableView.tableHeaderView = header
         
         
         devService = DeviceService()
@@ -150,7 +165,11 @@ class ViewController: UIViewController,FJBaiduToolDelegate,DeviceServiceDelegate
         
         resultString += dataStr + "\n"
         
-        print(resultString)
+        print(dataStr)
+        
+        arrayData.append(data)
+        
+        tableView.reloadData()
         
 //        textView.text = resultString
     }
@@ -174,6 +193,9 @@ class ViewController: UIViewController,FJBaiduToolDelegate,DeviceServiceDelegate
         resultString = ""
         
 //        textView.text = resultString
+        
+        arrayData.removeAll()
+        tableView.reloadData()
     }
 }
 
