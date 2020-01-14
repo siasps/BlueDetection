@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController,FJBaiduToolDelegate,DeviceServiceDelegate,UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+        
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayData.count;
@@ -39,6 +40,10 @@ class ViewController: UIViewController,FJBaiduToolDelegate,DeviceServiceDelegate
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.02
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        self.tableView.scrollToRow(at: NSIndexPath.init(row: self.arrayData.count - 1, section: 0) as IndexPath, at: UITableView.ScrollPosition.bottom, animated: false)
     }
     
 
@@ -127,7 +132,7 @@ class ViewController: UIViewController,FJBaiduToolDelegate,DeviceServiceDelegate
     
     // MARK: - DeviceServiceDelegate method
     func found(form service: DeviceService, deviceName: String, uuid: String) -> Bool {
-        //print(deviceName,uuid)
+        print(deviceName,uuid)
         if deviceName.hasPrefix("Pregnancy") {
             service.connectPeripheral(name: deviceName)
             
